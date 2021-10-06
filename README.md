@@ -2,7 +2,7 @@
 ## Day1 Exercise
 - 建立如下的student类.
 
-![alt text](https://github.com/wruochao19/Leetcode-Note/blob/main/Images/240-2.PNG)
+![alt text](https://github.com/wruochao19/Oct_Java_Backend/blob/main/image/Student.png)
 
 - 创建3个Student对象并存入数组中.
 

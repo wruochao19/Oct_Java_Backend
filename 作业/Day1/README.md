@@ -1,3 +1,4 @@
+## DAY 1
 - 建立如下的student类.
 
 ![alt text](https://github.com/wruochao19/Oct_Java_Backend/blob/main/image/Student.png)

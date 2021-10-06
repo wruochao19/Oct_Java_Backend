@@ -20,7 +20,7 @@ public class Day1 {
              return Integer.valueOf(o2.getGrade()).compareTo(Integer.valueOf(o1.getGrade()));
          }
      });
-     //print students grade from hight to low
+     //print students info
      for (Student student : students){
          System.out.println(student);
      }

@@ -2,7 +2,7 @@
 ### 编写一个项目，模拟的对数据库CRUD的操作。
 
 
-- 编写``` Controller ```类，实现接收键盘上的输入指令，并通过 ```Controller```调用```Service```接口的实现类来完成具体操作
+- 完善``` Controller ```类，实现接收键盘上的输入指令，并通过 ```Controller```调用```Service```接口的实现类来完成具体操作
 
 ```
 Add,<ID>,<NAME>,<GRADE>          //添加学生 
@@ -12,7 +12,7 @@ Update,<ID>,<NAME>,<GRADE>       //更新学生
 Del,<ID>                         //删除学生
 ```
 
-- 编写```ServiceImpl```类来实现```Service```接口的中抽象方法
+- 创建```ServiceImpl```类来实现```Service```接口的中抽象方法
 
 - 完善```Dao```类, 用```HashMap<key, Student>```来模拟数据库，并实现对数据库的CURD操作
 

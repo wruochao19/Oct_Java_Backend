@@ -22,9 +22,9 @@ Del,<ID>                         //删除学生
 - project 根目录
     - entity
           - Student     (学生实体类
-    - Controller        (Controller类, 提供main方法，接受键盘输入指令, 并调用Service对象实现相应指令
     - service
           - Service     (Service接口
           - ServiceImpl (Service实现类, 提供相应方法的具体实现，并调用Dao对象来对数据库进行操作
+    - Controller        (Controller类, 提供main方法，接受键盘输入指令, 并调用Service对象实现相应指令
     - Dao               (Dao类, 使用HashMap模拟数据库, 并实现数据对数据库的CRUD操作
 ```

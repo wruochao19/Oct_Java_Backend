@@ -13,24 +13,31 @@ public class Repo implements Service{
         return checkContainId(id);
     }
 
-    public boolean insertStudent(int id,String name)
+    public ArrayList<Student> getAllStudents()
+    {
+        return this.students;
+    }
+
+    public boolean insertStudent(int id,String name, int grade)
     {
         if(checkContainId(id) != null)
             return false;
         else
         {
-            addStudentToList(id,name);
+            addStudentToList(id,name,grade);
             return true;
         }
     }
 
-    public boolean updateStudent(int id,String name)
+    public boolean updateStudent(int id,String name,int grade)
     {
         if(checkContainId(id) == null)
             return false;
         else
         {
-            checkContainId(id).setName(name);
+            Student temp = checkContainId(id);
+            temp.setName(name);
+            temp.setGrade(grade);
             return true;
         }
 
@@ -62,9 +69,9 @@ public class Repo implements Service{
         return null;
     }
 
-    private void addStudentToList(int id,String name)
+    private void addStudentToList(int id,String name,int grade)
     {
-        Student student = new Student(id,name);
+        Student student = new Student(id,name,grade);
         this.students.add(student);
     }
 }

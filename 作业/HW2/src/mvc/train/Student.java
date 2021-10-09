@@ -6,36 +6,18 @@ public class Student{
     private String name;
     private int id;
     private int grade;
-//    public static void main(String[] args)
-//    {
-//        ArrayList<Student> students = new ArrayList<>();
-//        students.add(new Student("a"));
-//        students.add(new Student("b"));
-//        students.add(new Student("c"));
-//
-//        int i = 0;
-//        for (Student st :students)
-//        {
-//            st.inputGrade();
-//        }
-//        //Sort student with higher grade first.
-//        Collections.sort(students, (s1, s2) -> new Integer(s2.getGrade()).compareTo(s1.getGrade()));
-//
-//        for (Student st :students)
-//        {
-//            System.out.println(st.toString());
-//        }
-//    }
+
     public Student(){}
     public Student(String name)
     {
         this.name = name;
     }
 
-    public Student(int id,String name)
+    public Student(int id,String name,int grade)
     {
         this.id = id;
         this.name = name;
+        this.grade = grade;
     }
 
     public String getName()

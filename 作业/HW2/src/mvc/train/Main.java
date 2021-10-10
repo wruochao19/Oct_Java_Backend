@@ -39,7 +39,8 @@ public class Main {
             catch(Exception e)
             {
                 System.out.println("Input wrong.\nPlease check your input.\n" +
-                        "Input should be 'operation,id,name' or 'operation,id'.");
+                        "Input should be 'Add,id,name,grade' or 'Get,id' or 'GetAll' or " +
+                        "'Del,id' or 'Update,id,name,grade' or 'End'.");
             }
 
         }
@@ -61,16 +62,21 @@ public class Main {
         if(controller.getStudentById(id) == null)
             System.out.printf("No student has id '%d' in the system.\n",id);
         else
-            System.out.printf("Get Student with id '%d' successfully. The name is: '%s' and the" +
+            System.out.printf("Get Student with id '%d' successfully. The name is: '%s' and the " +
                             "grade is '%d'.\n", id, controller.getStudentById(id).getName(),
                     controller.getStudentById(id).getGrade());
     }
 
     private void GetAll()
     {
-        for(Student student :controller.getAllStudents())
+        if(controller.getAllStudents().isEmpty())
+            System.out.println("No student in the map.");
+        else
         {
-            System.out.println(student.toString());
+            for(Student student :controller.getAllStudents().values())
+            {
+                System.out.println(student.toString());
+            }
         }
     }
 

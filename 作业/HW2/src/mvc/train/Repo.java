@@ -1,10 +1,11 @@
 package mvc.train;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Repo implements Service{
 
-    private ArrayList<Student> students = new ArrayList<>();
+    private final HashMap<Integer,Student> students = new HashMap<>();
 
     public Student getStudentById(int id)
     {
@@ -13,7 +14,7 @@ public class Repo implements Service{
         return checkContainId(id);
     }
 
-    public ArrayList<Student> getAllStudents()
+    public HashMap<Integer,Student> getAllStudents()
     {
         return this.students;
     }
@@ -36,6 +37,7 @@ public class Repo implements Service{
         else
         {
             Student temp = checkContainId(id);
+            assert temp != null;
             temp.setName(name);
             temp.setGrade(grade);
             return true;
@@ -49,22 +51,22 @@ public class Repo implements Service{
             return false;
         else
         {
-            getStudentsList().remove(checkContainId(id));
+            getStudentsList().remove(id);
             return true;
         }
     }
 
-    public ArrayList<Student> getStudentsList()
+    public HashMap<Integer,Student> getStudentsList()
     {
         return this.students;
     }
 
     private Student checkContainId(int id)
     {
-        for(Student st:getStudentsList())
+        for(int key:getStudentsList().keySet())
         {
-            if(st.getId() == id)
-                return st;
+            if(key == id)
+                return getStudentsList().get(key);
         }
         return null;
     }
@@ -72,6 +74,6 @@ public class Repo implements Service{
     private void addStudentToList(int id,String name,int grade)
     {
         Student student = new Student(id,name,grade);
-        this.students.add(student);
+        this.students.put(id,student);
     }
 }

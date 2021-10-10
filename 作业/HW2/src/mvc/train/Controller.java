@@ -1,6 +1,7 @@
 package mvc.train;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Controller {
     private final Service service = new Repo();
@@ -14,7 +15,7 @@ public class Controller {
         return service.insertStudent(id,name,grade);
     }
 
-    public ArrayList<Student> getAllStudents()
+    public HashMap<Integer,Student> getAllStudents()
     {
         return service.getAllStudents();
     }

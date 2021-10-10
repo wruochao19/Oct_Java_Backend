@@ -14,7 +14,7 @@ Del,<ID>                         //删除学生
 
 - 创建```ServiceImpl```类来实现```Service```接口的中抽象方法
 
-- 完善```Dao```类, 用```HashMap<key, Student>```来模拟数据库，并实现对数据库的CURD操作
+- 完善```project.dao.Dao```类, 用```HashMap<key, Student>```来模拟数据库，并实现对数据库的CURD操作
 
 #### 详细结构
 
@@ -26,5 +26,5 @@ Del,<ID>                         //删除学生
           - Service     (Service接口
           - ServiceImpl (Service实现类, 提供相应方法的具体实现，并调用Dao对象来对数据库进行操作
     - Controller        (Controller类, 提供main方法，接受键盘输入指令, 并调用Service对象实现相应指令
-    - Dao               (Dao类, 使用HashMap模拟数据库, 并实现数据对数据库的CRUD操作
+    - project.dao.Dao               (Dao类, 使用HashMap模拟数据库, 并实现数据对数据库的CRUD操作
 ```

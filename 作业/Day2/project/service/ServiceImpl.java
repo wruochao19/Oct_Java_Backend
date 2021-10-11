@@ -6,9 +6,16 @@ import java.util.List;
 
 public class ServiceImpl implements Service{
 
+    // implement singleton
+    static ServiceImpl service = new ServiceImpl();
+    private ServiceImpl(){}
+
+    public static ServiceImpl getInstance(){
+        return service;
+    }
+
     private static final Dao dao = new Dao();
     // 返回所有对象，并按成绩从高到低排序 // （可选）输出成绩从高到低排序，若成绩一样则按名字顺序排序
-
     public List<Student> getAllElements() {
         return dao.getAllElements();
     }

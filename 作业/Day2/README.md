@@ -1,6 +1,6 @@
 ## Day 2
 
-##结果预览
+## 结果预览
 #### GetAll
 ![Alt Text](img/default.gif)
 #### Add

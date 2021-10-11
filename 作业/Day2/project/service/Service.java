@@ -1,9 +1,8 @@
-package service;
+package Day2.project.service;
 
-import entity.Student;
+import Day2.project.entity.Student;
 
 import java.util.List;
-
 
 // 实现Service接口中的抽象方法
 public interface Service {
@@ -12,5 +11,4 @@ public interface Service {
     void createElement(Integer id, Student student);        // 通过id创建新Student
     void deleteElementByKey(Integer id);                    // 通过id删除对应的Student
     Student getElementByKey(Integer id);                    // 通过id获取相应的Student
-
 }

@@ -1,9 +1,11 @@
-package entity;
+package Day2.project.entity;
 
 public class Student {
 
     private String name;
     private Integer grade;
+
+    public Student(){}
 
     public Student(String name, Integer grade) {
         this.name = name;

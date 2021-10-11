@@ -1,4 +1,4 @@
-package entity;
+package Day2.project.entity;
 
 public class Student {
 

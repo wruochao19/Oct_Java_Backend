@@ -1,9 +1,7 @@
-package service;
+package Day2.project.service;
 
-import entity.Student;
-
+import Day2.project.entity.Student;
 import java.util.List;
-
 
 // 实现Service接口中的抽象方法
 public interface Service {

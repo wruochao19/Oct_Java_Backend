@@ -3,9 +3,9 @@ package mvc.train;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Repo implements Service{
+public class ServiceImpl implements Service{
 
-    private final HashMap<Integer,Student> students = new HashMap<>();
+    private final HashMap<Integer,Student> students = new Dao().getStudents();
 
     public Student getStudentById(int id)
     {

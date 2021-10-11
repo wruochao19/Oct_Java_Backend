@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Controller {
-    private final Service service = new Repo();
+    private final Service service = new ServiceImpl();
     public Student getStudentById(int id)
     {
         return service.getStudentById(id);

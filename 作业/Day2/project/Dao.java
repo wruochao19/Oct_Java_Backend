@@ -2,14 +2,15 @@ package Day2.project;
 
 import Day2.project.entity.Student;
 
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
 public class Dao{
     // 初始化数据库
     // HashMap<id, Student>
-    private HashMap<Integer, Student> dataBase = new HashMap<Integer, Student>() {{
+    private final HashMap<Integer, Student> dataBase = new HashMap<>() {{
             put(1, new Student("Rick Sanchez", 100));
             put(2, new Student("Summer Smith", 60));
             put(3, new Student("Morty Smith", 60));
@@ -18,7 +19,9 @@ public class Dao{
     // 实现对数据的CURD操作
     // 返回所有对象，并按成绩从高到低排序 // （可选）输出成绩从高到低排序，若成绩一样则按名字顺序排序
     public List<Student> getAllElements() {
-        return dataBase.values().stream().toList();
+        List<Student> studentsList = new ArrayList<>(dataBase.values().stream().toList());
+        studentsList.sort(Comparator.comparing(Student::getGrade,Comparator.reverseOrder()).thenComparing(Student::getName));
+        return studentsList;
     }
 
     // 通过id更新数据库中的Student

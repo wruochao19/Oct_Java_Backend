@@ -14,12 +14,7 @@ public class Controller{
 
         Scanner sc = new Scanner(System.in);
         Service service = new ServiceImpl();
-        System.out.println("Add,<ID>,<NAME>,<GRADE>          //添加学生\n" +
-                "Get,<ID>                         //查找学生\n" +
-                "GetAll                           //按要求输出所有学生\n" +
-                "Update,<ID>,<NAME>,<GRADE>       //更新学生\n" +
-                "Del,<ID>                         //删除学生\n" +
-                "Exit                             //结束" );
+        System.out.println("Add,<ID>,<NAME>,<GRADE>          //添加学生\nGet,<ID>                         //查找学生\nGetAll                           //按要求输出所有学生\nUpdate,<ID>,<NAME>,<GRADE>       //更新学生\nDel,<ID>                         //删除学生\nExit                             //结束" );
         boolean flag = true;
         while(flag){
             System.out.print("Type your operation: ");
@@ -29,21 +24,40 @@ public class Controller{
                 String operation = string[0];
                 switch(operation){
                     case "Add":
-                        service.createElement(Integer.valueOf(string[1]),new Student(string [2], Integer.valueOf(string[3])));
+                        if(string.length == 4){
+                            service.createElement(Integer.valueOf(string[1]),new Student(string [2], Integer.valueOf(string[3])));
+                        }else{
+                            System.out.println("Invalid Add operation");}
                         break;
                     case "Get":
-                        Student student = service.getElementByKey(Integer.valueOf(string[1]));
-                        System.out.println(student);
+                        if(string.length == 2) {
+                            Student student = service.getElementByKey(Integer.valueOf(string[1]));
+                            System.out.println(student);
+                        }else{
+                            System.out.println("Invalid Get operation");
+                        }
                         break;
                     case "GetAll":
-                        List<Student> studentList = service.getAllElements();
-                        System.out.println(studentList.toString());
+                        if(string.length == 1) {
+                            List<Student> studentList = service.getAllElements();
+                            System.out.println(studentList.toString());
+                        }else{
+                            System.out.println("Invalid GetAll operation");
+                        }
                         break;
                     case "Update":
-                        service.updateElementByKey(Integer.valueOf(string[1]),new Student(string [2], Integer.valueOf(string[3])));
+                        if(string.length == 4) {
+                            service.updateElementByKey(Integer.valueOf(string[1]),new Student(string [2], Integer.valueOf(string[3])));
+                        }else{
+                            System.out.println("Invalid Update operation");
+                        }
                         break;
                     case "Del":
-                        service.deleteElementByKey(Integer.valueOf(string[1]));
+                        if(string.length == 2) {
+                            service.deleteElementByKey(Integer.valueOf(string[1]));
+                        } else{
+                            System.out.println("Invalid Del operation");
+                        }
                         break;
                     case "Exit":
                         flag = false;

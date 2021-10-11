@@ -1,7 +1,8 @@
 package project.dao;
 
-import entity.Student;
+import project.entity.Student;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -10,11 +11,11 @@ public class Dao {
     // 初始化数据库
     // HashMap<id, Student>
 
-    private HashMap<Integer, Student> dataBase = new HashMap<Integer, Student>(){
+    HashMap<Integer, Student> dataBase = new HashMap<Integer, Student>(){
         {
-            dataBase.put(1,new Student("Rick Sanchez", 100));
-            dataBase.put(2,new Student("Summer Smith", 60));
-            dataBase.put(3,new Student("Morty Smith",60));
+            put(1,new Student("Rick Sanchez", 100));
+            put(2,new Student("Summer Smith", 60));
+            put(3,new Student("Morty Smith",60));
         }
     };
 
@@ -22,7 +23,7 @@ public class Dao {
 
     // 返回所有对象
     public List<Student> getAllElements(){
-        List res = (List)dataBase.values();
+        List res = new ArrayList(dataBase.values());
         return res;
     }
 
@@ -34,18 +35,37 @@ public class Dao {
     }
 
     // 通过id更新数据库中的Student
-    public void updateElementByKey(Integer id, Student student){
-        dataBase.put(id,student);
+    public int updateElementByKey(Integer id, Student student){
+        if (dataBase.containsKey(id)){
+            dataBase.put(id,student);
+            return 0;
+        }
+        else{
+            return -1;
+        }
     }
 
     // 通过id创建新Student
-    public void createElement(Integer id, Student student){
-        dataBase.put(id,student);
+    public int createElement(Integer id, Student student){
+        if (!dataBase.containsKey(id)){
+            dataBase.put(id,student);
+            return 0;
+        }
+        else{
+            return -1;
+        }
+
     }
 
     // 通过id删除对应的Student
-    public void deleteElementByKey(Integer id){
-        dataBase.remove(id);
+    public int deleteElementByKey(Integer id){
+        if (dataBase.containsKey(id)){
+            dataBase.remove(id);
+            return 0;
+        }
+        else{
+            return -1;
+        }
     }
 
     // 通过id获取相应的Student

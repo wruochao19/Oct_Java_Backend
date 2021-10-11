@@ -1,4 +1,18 @@
 ## Day 2
+
+##结果预览
+#### GetAll
+![Alt Text](img/default.gif)
+#### Add
+![Alt Text](img/add.gif)
+#### Get
+![Alt Text](img/get.gif)
+#### Update
+![Alt Text](img/update.gif)
+#### Del
+![Alt Text](img/del.gif)
+
+## 作业要求
 ### 编写一个项目，模拟的对数据库CRUD的操作。
 
 

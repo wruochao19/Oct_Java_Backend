@@ -1,6 +1,6 @@
-package service;
+package project.service;
 
-import entity.Student;
+import project.entity.Student;
 
 import java.util.List;
 

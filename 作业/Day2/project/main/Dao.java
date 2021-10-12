@@ -36,7 +36,7 @@ public class Dao{
     }
     public void createElement(Integer id, Student student) {
         if(dataBase.containsKey(id)){
-            System.out.println("Another Student is already used this ID, please use another ID number.");
+            System.out.println("Another Student is currently using this ID, please use another ID number.");
         }else {
             dataBase.put(id, student);
             System.out.println("Done, adding successfully");

@@ -39,14 +39,20 @@ public class StudentRepo {
      * @param id
      * @param student
      */
-    public boolean insertStudentByID(int id, Student student){
-        if(dataBase.containsKey(id)) {
-            return false;
-        }
-        else {
-            dataBase.put(id, student);
-            return true;
-        }
+    public void insertStudentByID(int id, Student student){
+       try{
+           if(dataBase.containsKey(id)) {
+               throw new Exception("Current Database already has THIS student!" +
+                       " Student ID must be UNIQUE!");
+           }
+           else {
+               dataBase.put(id, student);
+               System.out.println("Successful add!");
+           }
+       }
+       catch (Exception e){
+           System.err.println(e.getMessage());
+       }
     }
 
     /**
@@ -63,7 +69,16 @@ public class StudentRepo {
      * @param id
      */
     public void deleteStudentByID(int id){
-        dataBase.remove(id);
+        try{
+            if(!dataBase.containsKey(id))
+                throw new Exception("Current Database does not have such student with ID: " + id);
+            else {
+                dataBase.remove(id);
+                System.out.println("Student with ID " + id + " removed successful!");
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     /**
@@ -72,12 +87,16 @@ public class StudentRepo {
      * @param student
      */
     public void updateStudentByID(int id, Student student){
-        if(dataBase.containsKey(id)){
-//            Student existedStudent = dataBase.get(id);
-            dataBase.replace(id, student);
+        try{
+            if(dataBase.containsKey(id)){
+                dataBase.replace(id, student);
+            }
+            else{
+                throw new Exception("Database does not have student with ID: " + id);
+            }
         }
-        else{
-            System.out.println("Database does not have student with ID: " + id);
+        catch (Exception e){
+            System.err.println(e.getMessage());
         }
     }
 }

@@ -62,7 +62,7 @@ public class UserApplication {
                     END=true;
                     break;
                 default:
-                    System.out.println("Invalid Command!");
+                    System.err.println("Invalid Command!");
                     break;
             }
         }

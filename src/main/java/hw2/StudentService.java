@@ -20,10 +20,15 @@ public class StudentService implements Service{
 
     @Override
     public void createStudent(Integer id, Student student) {
-      if(studentRepo.insertStudentByID(id, student))
-          System.out.println("Successful add!");
-      else
-          System.out.println("The student already exists in the db ...");
+//      try{
+//         if(!studentRepo.insertStudentByID(id, student))
+//             throw new Exception("Student inserting NOT successful!");
+//         else
+//             System.out.println("Successful add!");
+//      } catch (Exception e) {
+//          System.err.println(e.getMessage());
+//      }
+        studentRepo.insertStudentByID(id, student);
     }
 
     @Override

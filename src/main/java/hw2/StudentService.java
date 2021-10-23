@@ -1,12 +1,21 @@
 package hw2;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
+/**
+ * Service Layer
+ * @author Carter Du
+ */
+@org.springframework.stereotype.Service
 public class StudentService implements Service{
-    private final StudentRepo studentRepo = new StudentRepo();
-    public StudentService(){}
+    private final StudentRepo studentRepo;
+
+    @Autowired
+    public StudentService(StudentRepo studentRepo){
+        this.studentRepo = studentRepo;
+    }
 
     @Override
     public List<Student> getAllStudent() {
@@ -14,20 +23,12 @@ public class StudentService implements Service{
     }
 
     @Override
-    public void updateStudentByID(Integer id, Student student) {
+    public void updateStudentByID(Integer id, Student student){
         studentRepo.updateStudentByID(id, student);
     }
 
     @Override
     public void createStudent(Integer id, Student student) {
-//      try{
-//         if(!studentRepo.insertStudentByID(id, student))
-//             throw new Exception("Student inserting NOT successful!");
-//         else
-//             System.out.println("Successful add!");
-//      } catch (Exception e) {
-//          System.err.println(e.getMessage());
-//      }
         studentRepo.insertStudentByID(id, student);
     }
 

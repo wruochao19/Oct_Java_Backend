@@ -1,5 +1,9 @@
 package hw2;
 
+/**
+ * Entity Class
+ * @author Carter Du
+ */
 public class Student {
     private String name;
     private Integer grade;

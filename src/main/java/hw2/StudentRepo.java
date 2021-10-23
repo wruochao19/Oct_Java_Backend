@@ -1,11 +1,14 @@
 package hw2;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.*;
 
 /**
  * @author Carter Du
  * DAO layer (local database)
  */
+@Repository
 public class StudentRepo {
 
 //    public final HashMap<Integer, Student> dataBase = new HashMap<Integer, Student>(){
